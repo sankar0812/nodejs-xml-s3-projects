@@ -1,0 +1,5 @@
+[
+  { "clientId": "client1", "startPage": 1, "endPage": 4 },
+  { "clientId": "client2", "startPage": 5, "endPage": 10 },
+  { "clientId": "client3", "startPage": 11, "endPage": 20 }
+]

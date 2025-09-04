@@ -1,0 +1,16 @@
+{
+  "name": "xml-mongo-project",
+  "version": "1.0.0",
+  "description": "Parse XML data and store in MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "nodemon server.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^7.5.0",
+    "xml2js": "^0.4.23"
+  }
+}
