@@ -18,7 +18,7 @@
 //     }
 // });
 
-// const bucketName = "torus9x-dev";
+// const bucketName = "";
 
 // // Multer setup for file upload
 // const upload = multer({ dest: 'uploads/' });
