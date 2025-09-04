@@ -113,7 +113,7 @@ const path = require("path");
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 
-// ✅ AWS S3 Client
+// AWS S3 Client
 const s3 = new S3Client({
   region: process.env.AWS_REGION || "ap-south-1",
   credentials: {
@@ -122,7 +122,7 @@ const s3 = new S3Client({
   },
 });
 
-// ✅ Save file locally
+// Save file locally
 async function saveToLocal(buffer, key) {
   const filePath = path.join(__dirname, "uploads", key);
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -130,7 +130,7 @@ async function saveToLocal(buffer, key) {
   console.log(`💾 Saved locally: ${filePath}`);
 }
 
-// ✅ Upload to S3
+// Upload to S3
 async function uploadToS3(buffer, key) {
   const params = {
     Bucket: process.env.AWS_BUCKET,
@@ -142,7 +142,7 @@ async function uploadToS3(buffer, key) {
   console.log(`✅ Uploaded ${key}`);
 }
 
-// ✅ Extract client ranges dynamically
+// Extract client ranges dynamically
 async function findClientRanges(pdfBuffer) {
   const data = await pdfParse(pdfBuffer);
   const pages = data.text.split("\f"); // split by page
@@ -178,7 +178,7 @@ async function findClientRanges(pdfBuffer) {
   return clientRanges;
 }
 
-// ✅ Split and upload each client
+// Split and upload each client
 async function splitAndUpload(pdfBuffer, clientRanges) {
   const pdfDoc = await PDFDocument.load(pdfBuffer);
 
@@ -198,7 +198,7 @@ async function splitAndUpload(pdfBuffer, clientRanges) {
   }
 }
 
-// ✅ Upload API
+// Upload API
 app.post("/upload", upload.single("pdf"), async (req, res) => {
   try {
     if (!req.file) {
@@ -215,14 +215,14 @@ app.post("/upload", upload.single("pdf"), async (req, res) => {
 
     await splitAndUpload(pdfBuffer, clientRanges);
 
-    res.send("✅ PDF split by client and uploaded to S3 + saved locally");
+    res.send("PDF split by client and uploaded to S3 + saved locally");
   } catch (err) {
     console.error(err);
     res.status(500).send("Error processing PDF");
   }
 });
 
-// ✅ Download API
+// Download API
 app.get("/download/:client", async (req, res) => {
   try {
     const clientName = req.params.client;
@@ -248,5 +248,5 @@ app.get("/download/:client", async (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("🚀 Server running at http://localhost:3000");
+  console.log("Server running at http://localhost:3000");
 });
