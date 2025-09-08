@@ -26,7 +26,7 @@ const s3 = new S3Client({
 
 const cfg = {
   bucket: process.env.S3_BUCKET,
-  prefix: process.env.S3_PREFIX || 'dev',
+  prefix: process.env.S3_PREFIX,
   sse: process.env.SSE,
   kmsKeyId: process.env.KMS_KEY_ID,
 };

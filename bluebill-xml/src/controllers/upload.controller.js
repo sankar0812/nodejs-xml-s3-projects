@@ -61,13 +61,13 @@ async function uploadXML(req, res) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    // ✅ Parse XML into JSON
+    // Parse XML into JSON
     const parsed = await parseXMLFile(file.path);
 
-    // ✅ Convert into DTO
+    // Convert into DTO
     const dto = buildOrderDTO(parsed);
 
-    // ✅ Upsert order by orderId
+    // Upsert order by orderId
     let order = await Order.findOneAndUpdate(
       { orderId: dto.orderId },
       { ...dto, raw: parsed },

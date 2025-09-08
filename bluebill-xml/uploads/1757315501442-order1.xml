@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order>
+  <Id>ORD1001</Id>
+  <OrderDate>2025-09-01</OrderDate>
+  <Currency>USD</Currency>
+  <Customer>
+    <Code>CUST001</Code>
+    <Name>John Doe</Name>
+    <Email>john@example.com</Email>
+    <Phone>+1-555-1234</Phone>
+    <Address>
+      <Line1>123 Main St</Line1>
+      <City>New York</City>
+      <State>NY</State>
+      <Postal>10001</Postal>
+      <Country>USA</Country>
+    </Address>
+  </Customer>
+  <Items>
+    <Item>
+      <SKU>P100</SKU>
+      <Name>Product A</Name>
+      <Qty>2</Qty>
+      <Price>50</Price>
+      <Tax>5</Tax>
+      <Total>105</Total>
+    </Item>
+    <Item>
+      <SKU>P200</SKU>
+      <Name>Product B</Name>
+      <Qty>4</Qty>
+      <Price>75</Price>
+      <Tax>7.5</Tax>
+      <Total>82.5</Total>
+    </Item>
+  </Items>
+  <SubTotal>175</SubTotal>
+  <TaxTotal>12.5</TaxTotal>
+  <GrandTotal>187.5</GrandTotal>
+</Order>
